@@ -8,4 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Proprietaire extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nom',
+        'prenom',
+        'adresse',
+        'email',
+        'telephone',
+        'civilite',
+        'cni',
+        'sexe',
+        'dateNaissance',
+        'lieuNaissanc'
+    ];
+
+    public function propriete()
+    {
+        return $this->hasMany(Propriete::class);
+    }
 }

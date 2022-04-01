@@ -12,7 +12,7 @@
           <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/Tasnim.jpeg')}}" class="img-circle" width="80"></a></p>
           <!-- <h5 class="centered">Sam Soffes</h5> -->
           <li class="mt">
-            <a class="active" href="index.html">
+            <a class="active" href="/">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -50,7 +50,7 @@
               <span>Gestion des propriétaires</span>
               </a>
             <ul class="sub">
-              <li><a href="add">Ajout des propriétaires</a></li>
+              <li><a href="add-proprietaire">Ajout des propriétaires</a></li>
               <li><a href="update">Mis à jour propriétaires</a></li>
               <li><a href="delete">Suspendre propriétaires</a></li>
               <li><a href="list">Liste des propriétaires </a></li>

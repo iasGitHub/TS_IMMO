@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+//Proprietaire
+Route::get('/add-proprietaire', function () {
+    return view('proprietaire.add');
+});
