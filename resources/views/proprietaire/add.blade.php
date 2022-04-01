@@ -9,8 +9,9 @@
           <div class="col-lg-6 col-md-6 col-sm-6">
             <h4 class="title">Ajout proprietaire</h4>
             <div id="message"></div>
-            <form class="contact-form php-mail-form" role="form" action="contactform/contactform.php" method="POST">
 
+            <form class="contact-form php-mail-form" role="form" enctype="multipart/form-data" action="{{ route('proprietaire.store') }}" method="POST">
+            @csrf
               <div class="form-group">
                 <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrer votre nom" data-rule="minlen:2" data-msg="Please enter at least 2 chars" >
                 <div class="validate"></div>
@@ -51,10 +52,6 @@
                 <input type="text" name="lieuNaissance" class="form-control" id="lieuNaissance" placeholder="Entrer votre lieu de naissance" data-rule="minlen:4" data-msg="Please enter at least 4 chars ">
                 <div class="validate"></div>
               </div>
-
-              <div class="loading"></div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
 
               <div class="form-send">
                 <button type="submit" class="btn btn-large btn-primary">Enregistrer</button>

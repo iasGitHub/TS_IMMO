@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProprietaireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::get('/', function () {
 Route::get('/add-proprietaire', function () {
     return view('proprietaire.add');
 });
+
+Route::post('/proprietaire', [ProprietaireController::class, 'store'])->name('proprietaire.store');

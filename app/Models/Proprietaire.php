@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Propriete;
 
 class Proprietaire extends Model
 {
@@ -19,11 +20,11 @@ class Proprietaire extends Model
         'cni',
         'sexe',
         'dateNaissance',
-        'lieuNaissanc'
+        'lieuNaissance'
     ];
 
-    public function propriete()
+    public function proprietes()
     {
-        return $this->hasMany(Propriete::class);
+        return $this->hasMany(Propriete::class, 'proprietaire_id', 'id');
     }
 }

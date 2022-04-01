@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('proprietes', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->string('libelle');
             $table->string('superficie');
             $table->string('photo');
