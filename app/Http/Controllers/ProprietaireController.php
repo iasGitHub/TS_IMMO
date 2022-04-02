@@ -16,7 +16,8 @@ class ProprietaireController extends Controller
      */
     public function index()
     {
-        
+        $proprietaires = Proprietaire::all();
+        return view('index',compact('proprietaires'));
     }
 
     /**
@@ -50,7 +51,7 @@ class ProprietaireController extends Controller
         $proprietaire->lieuNaissance = $request->lieuNaissance;
         $proprietaire->save();
 
-        return redirect()->route('proprietaire.list');
+        return view('home');
     }
 
     /**
@@ -70,9 +71,10 @@ class ProprietaireController extends Controller
      * @param  \App\Models\Proprietaire  $proprietaire
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proprietaire $proprietaire)
+    public function edit($id)
     {
-        //
+        $proprietaire = Proprietaire::findOrFail($id);
+        return view('edit', compact('proprietaire'));
     }
 
     /**
@@ -82,9 +84,9 @@ class ProprietaireController extends Controller
      * @param  \App\Models\Proprietaire  $proprietaire
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProprietaireRequest $request, Proprietaire $proprietaire)
+    public function update(Request $request,$id)
     {
-        //
+        
     }
 
     /**
@@ -93,8 +95,10 @@ class ProprietaireController extends Controller
      * @param  \App\Models\Proprietaire  $proprietaire
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proprietaire $proprietaire)
+    public function destroy($id)
     {
-        //
+        $proprietaire = Proprietaire::findOrFail($id);
+        $proprietaire->delete();
+        return redirect('/proprietaire')->with('success', 'Proprietaire Data is successfully deleted');
     }
 }

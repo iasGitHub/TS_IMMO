@@ -20,7 +20,15 @@ Route::get('/', function () {
 
 //Proprietaire
 Route::get('/add-proprietaire', function () {
-    return view('proprietaire.add');
+    return view('proprietaire.create');
 });
 
-Route::post('/proprietaire', [ProprietaireController::class, 'store'])->name('proprietaire.store');
+Route::get('/list-proprietaire', function () {
+    return view('proprietaire.index');
+});
+
+
+Route::post('/proprietaire/store', [ProprietaireController::class, 'store'])->name('proprietaire.store');
+
+Route::get('/proprietaire', [ProprietaireController::class,'index'])->name('proprietaire.index');
+Route::get('/proprietaire/create', [ProprietaireController::class,'create'])->name('proprietaire.create');

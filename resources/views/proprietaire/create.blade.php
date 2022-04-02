@@ -10,7 +10,7 @@
             <h4 class="title">Ajout proprietaire</h4>
             <div id="message"></div>
 
-            <form class="contact-form php-mail-form" role="form" enctype="multipart/form-data" action="{{ route('proprietaire.store') }}" method="POST">
+            <form class="contact-form php-mail-form" role="form" action="{{ route('proprietaire.store') }}" method="POST">
             @csrf
               <div class="form-group">
                 <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrer votre nom" data-rule="minlen:2" data-msg="Please enter at least 2 chars" >

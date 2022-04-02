@@ -22,7 +22,7 @@
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" >
   <link rel="stylesheet" href="{{asset('assets/css/style-responsive.css')}}" >
-  <script src="lib/chart-master/Chart.js')}}"></script>
+  <script src="{{asset('assets/lib/chart-master/Chart.js')}}"></script>
 
   <!-- =======================================================
     Template Name: Dashio

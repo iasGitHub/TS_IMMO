@@ -10,6 +10,8 @@ class Proprietaire extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+    
     protected $fillable = [
         'nom',
         'prenom',
