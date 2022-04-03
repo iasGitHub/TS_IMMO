@@ -53,7 +53,7 @@
               <li><a href="add-proprietaire">Ajout des propriétaires</a></li>
               <li><a href="update">Mis à jour propriétaires</a></li>
               <li><a href="delete">Suspendre propriétaires</a></li>
-              <li><a href="list">Liste des propriétaires </a></li>
+              <li><a href="/proprietaire">Liste des propriétaires </a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -75,22 +75,6 @@
               <li><a href="add-propriete">Ajout des propriétés</a></li>
               <li><a href="update">Mis à jour propriété</a></li>
             </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-comments-o"></i>
-              <span>Chat Room</span>
-              </a>
-            <ul class="sub">
-              <li><a href="lobby.html">Lobby</a></li>
-              <li><a href="chat_room.html"> Chat Room</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="google_maps.html">
-              <i class="fa fa-map-marker"></i>
-              <span>Google Maps </span>
-              </a>
           </li>
         </ul>
         <!-- sidebar menu end-->

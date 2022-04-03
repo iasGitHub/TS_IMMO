@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Quartier;
 use App\Models\Propriete;
 use App\Models\Proprietaire;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreProprieteRequest;
 use App\Http\Requests\UpdateProprieteRequest;
 
@@ -51,7 +50,7 @@ class ProprieteController extends Controller
         $propriete->description = $request->description;
         $propriete->disponibilite = $request->disponibilite;
         $propriete->proprietaire_id = $request->proprietaire_id;
-        $propriete->quartier_id = $request->quartier_id;
+        $propriete->proprietaire_id = $request->proprietaire_id;
         $propriete->save();
 
         return view('home');

@@ -1,43 +1,60 @@
-@extends('layout')
-
-@section('content')
-<style>
-  .uper {
-    margin-top: 40px;
-  }
-</style>
-<div class="uper">
-  @if(session()->get('success'))
-    <div class="alert alert-success">
-      {{ session()->get('success') }}  
-    </div><br />
-  @endif
-  <table class="table table-striped">
-    <thead>
-        <tr>
-          <td>ID</td>
-          <td>Nom</td>
-          <td>Prenom</td>
-          <td colspan="2">Action</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($proprietaires as $proprietaire)
-        <tr>
-            <td>{{$proprietaire->id}}</td>
-            <td>{{$proprietaire->nom}}</td>
-            <td>{{$proprietaire->prenom}}</td>
-            <td><a href="{{ route('proprietaire.edit', $proprietaire->id)}}" class="btn btn-primary">Edit</a></td>
-            <td>
-                <form action="{{ route('proprietaire.destroy', $proprietaire->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-  </table>
-<div>
-@endsection
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Propriétaire</title>
+</head>
+<body>
+  <main class="container">
+      <div class="my-3 p-3 bg-body shadow-sm">
+        <h6 class="border-bottom pb-2 mb-4"> Liste des propriétaires </h6>
+        <div>
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prenom</th>
+                  <th scope="col">Adresse</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Téléphone</th>
+                  <th scope="col">Civilité</th>
+                  <th scope="col">CNI</th>
+                  <th scope="col">Sexe</th>
+                  <th scope="col">Date de naissance</th>
+                  <th scope="col">Lieu de naissance</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($proprietaires as $proprietaire)
+                <tr>
+                  <th scope="row">{{ $loop->index + 1}}</th>
+                  <td>{{ $proprietaire->nom}}</td>
+                  <td>{{ $proprietaire->prenom}}</td>
+                  <td>{{ $proprietaire->adresse}}</td>
+                  <td>{{ $proprietaire->email}}</td>
+                  <td>{{ $proprietaire->telephone}}</td>
+                  <td>{{ $proprietaire->civilite}}</td>
+                  <td>{{ $proprietaire->cni}}</td>
+                  <td>{{ $proprietaire->sexe}}</td>
+                  <td>{{ $proprietaire->dateNaissance}}</td>
+                  <td>{{ $proprietaire->lieuNaissance}}</td>
+                  <td>
+                    <a href="#" class="btn btn-info">Modifier</a>
+                    <a href="#" class="btn btn-danger">Supprimer</a>
+                  </td>                  
+                </tr>
+                @endforeach
+              </tbody>
+              {{ $proprietaires->links()}}
+            </table>
+        </div>
+      </div>
+      </div>
+  </main>
+</body>
+</html>

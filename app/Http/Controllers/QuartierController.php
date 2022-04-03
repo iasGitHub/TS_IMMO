@@ -26,7 +26,7 @@ class QuartierController extends Controller
      */
     public function create()
     {
-        //
+        return view('quartier.create');
     }
 
     /**

@@ -16,20 +16,18 @@
     <thead>
         <tr>
           <td>ID</td>
-          <td>Nom</td>
-          <td>Prenom</td>
+          <td>Libelle</td>
           <td colspan="2">Action</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($proprietaires as $proprietaire)
+        @foreach($quartiers as $quartier)
         <tr>
-            <td>{{$proprietaire->id}}</td>
-            <td>{{$proprietaire->nom}}</td>
-            <td>{{$proprietaire->prenom}}</td>
-            <td><a href="{{ route('proprietaire.edit', $proprietaire->id)}}" class="btn btn-primary">Edit</a></td>
+            <td>{{$quartier->id}}</td>
+            <td>{{$quartier->libelle}}</td>
+            <td><a href="{{ route('quartier.edit', $quartier->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
-                <form action="{{ route('proprietaire.destroy', $proprietaire->id)}}" method="post">
+                <form action="{{ route('quartier.destroy', $quartier->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>

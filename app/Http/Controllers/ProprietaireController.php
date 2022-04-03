@@ -16,8 +16,8 @@ class ProprietaireController extends Controller
      */
     public function index()
     {
-        $proprietaires = Proprietaire::all();
-        return view('index',compact('proprietaires'));
+        $proprietaires = Proprietaire::orderBy("nom", "asc")->paginate(2);
+        return view("proprietaire.index", compact("proprietaires"));
     }
 
     /**
