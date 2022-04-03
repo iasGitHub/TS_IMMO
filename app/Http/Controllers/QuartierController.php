@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreQuartierRequest;
-use App\Http\Requests\UpdateQuartierRequest;
+use App\Http\Requests\StoreProprietaireRequest;
+use App\Http\Requests\UpdateProprietaireRequest;
+use Illuminate\Http\Request;
 use App\Models\Quartier;
 
 class QuartierController extends Controller
@@ -34,9 +35,13 @@ class QuartierController extends Controller
      * @param  \App\Http\Requests\StoreQuartierRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreQuartierRequest $request)
+    public function store(Request $request)
     {
-        //
+        $quartier = new Quartier;
+        $quartier->libelle = $request->libelle;
+        $quartier->save();
+
+        return view('home');
     }
 
     /**

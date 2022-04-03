@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('superficie');
             $table->string('photo');
             $table->string('description');
-            $table->boolean('disponibilite');
+            $table->boolean('disponibilite')->default(true);
             $table->timestamps();
             $table->foreignIdFor(Proprietaire::class);
             $table->foreignIdFor(Quartier::class);

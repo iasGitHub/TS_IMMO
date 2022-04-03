@@ -58,12 +58,22 @@
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class=" fa fa-bar-chart-o"></i>
+              <i class="fa fa-book"></i>
+              <span>Gestion des quartiers</span>
+              </a>
+            <ul class="sub">
+              <li><a href="add-quartier">Ajout des quartiers</a></li>
+              <li><a href="update">Mis à jour quartier</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-book"></i>
               <span>Gestion des propriétés</span>
               </a>
-              <ul class="sub">
-              <li><a href="add">Ajout des propriétés</a></li>
-              <li><a href="list">Liste des propriétés </a></li>
+            <ul class="sub">
+              <li><a href="add-propriete">Ajout des propriétés</a></li>
+              <li><a href="update">Mis à jour propriété</a></li>
             </ul>
           </li>
           <li class="sub-menu">

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Quartier;
+use App\Models\Proprietaire;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -9,7 +11,7 @@ class Propriete extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     protected $fillable = [
         'id',

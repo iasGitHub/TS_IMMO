@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuartierController;
+use App\Http\Controllers\ProprieteController;
 use App\Http\Controllers\ProprietaireController;
 
 /*
@@ -19,16 +21,30 @@ Route::get('/', function () {
 });
 
 //Proprietaire
-Route::get('/add-proprietaire', function () {
-    return view('proprietaire.create');
+// Route::get('/add-proprietaire', function () {
+//     return view('proprietaire.create');
+// });
+Route::get('/add-proprietaire', [ProprietaireController::class, 'create']);
+Route::post('/proprietaire/store', [ProprietaireController::class, 'store'])->name('proprietaire.store');
+Route::get('/proprietaire', [ProprietaireController::class,'index'])->name('proprietaire.index');
+Route::get('/proprietaire/create', [ProprietaireController::class,'create'])->name('proprietaire.create');
+
+
+//Quartier
+Route::get('/add-quartier', function () {
+    return view('quartier.create');
 });
+Route::post('/quartier/store', [QuartierController::class, 'store'])->name('quartier.store');
 
 Route::get('/list-proprietaire', function () {
     return view('proprietaire.index');
 });
 
 
-Route::post('/proprietaire/store', [ProprietaireController::class, 'store'])->name('proprietaire.store');
+Route::get('/add-propriete', [ProprieteController::class, 'create']);
+Route::post('/propriete/store', [ProprieteController::class, 'store'])->name('propriete.store');
 
-Route::get('/proprietaire', [ProprietaireController::class,'index'])->name('proprietaire.index');
-Route::get('/proprietaire/create', [ProprietaireController::class,'create'])->name('proprietaire.create');
+
+
+
+

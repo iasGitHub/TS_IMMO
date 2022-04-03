@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quartier;
+use App\Models\Propriete;
+use App\Models\Proprietaire;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProprieteRequest;
 use App\Http\Requests\UpdateProprieteRequest;
-use App\Models\Propriete;
 
 class ProprieteController extends Controller
 {
@@ -25,7 +28,12 @@ class ProprieteController extends Controller
      */
     public function create()
     {
-        //
+        $quartiers = Quartier::all();
+        $proprietaires = Proprietaire::all();
+        return view('propriete.create',[
+            'proprietaires' => $proprietaires,
+            'quartiers' => $quartiers
+        ]);
     }
 
     /**
@@ -34,9 +42,19 @@ class ProprieteController extends Controller
      * @param  \App\Http\Requests\StoreProprieteRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProprieteRequest $request)
+    public function store(Request $request)
     {
-        //
+        $propriete = new Propriete;
+        $propriete->libelle = $request->libelle;
+        $propriete->superficie = $request->superficie;
+        $propriete->photo = $request->photo;
+        $propriete->description = $request->description;
+        $propriete->disponibilite = $request->disponibilite;
+        $propriete->proprietaire_id = $request->proprietaire_id;
+        $propriete->quartier_id = $request->quartier_id;
+        $propriete->save();
+
+        return view('home');
     }
 
     /**

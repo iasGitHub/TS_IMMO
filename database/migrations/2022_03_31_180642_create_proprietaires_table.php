@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('adresse');
-            $table->string('email')->UNIQUE();
-            $table->string('telephone')->UNIQUE();
+            $table->string('email')->unique();
+            $table->string('telephone')->unique();
             $table->string('civilite');
             $table->string('cni');
             $table->string('sexe');

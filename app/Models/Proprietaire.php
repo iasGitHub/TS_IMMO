@@ -9,7 +9,7 @@ use App\Models\Propriete;
 class Proprietaire extends Model
 {
     use HasFactory;
-
+    
     protected $guarded = [];
     
     protected $fillable = [
