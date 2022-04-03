@@ -73,10 +73,9 @@ class ProprietaireController extends Controller
      * @param  \App\Models\Proprietaire  $proprietaire
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Proprietaire $proprietaire)
     {
-        $proprietaire = Proprietaire::findOrFail($id);
-        return view('edit', compact('proprietaire'));
+        return view('proprietaire.edit', compact('proprietaire'));
     }
 
     /**
@@ -86,9 +85,34 @@ class ProprietaireController extends Controller
      * @param  \App\Models\Proprietaire  $proprietaire
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, Proprietaire $proprietaire)
     {
-        
+        $request->validate([
+            "nom" => "required",
+            "prenom" => "required",
+            "adresse" => "required",
+            "email" => "required",
+            "telephone" => "required",
+            "civilite" => "required",
+            "cni" => "required",
+            "sexe" => "required",
+            "dateNaissance" => "required",
+            "lieuNaissance" => "required",
+          ]);
+  
+          $proprietaire->update([
+                "nom" => $request->nom,
+                "prenom" => $request->prenom,
+                "adresse" => $request->adresse,
+                "email" => $request->email,
+                "telephone" => $request->telephone,
+                "civilite" => $request->civilite,
+                "cni" => $request->cni,
+                "sexe" => $request->sexe,
+                "dateNaissance" => $request->dateNaissance,
+                "lieuNaissance" => $request->lieuNaissance,
+          ]);
+          return back()->with("success", "Propriétaire mis à jour avec succès !");
     }
 
     /**
@@ -106,8 +130,9 @@ class ProprietaireController extends Controller
 
     public function delete (Proprietaire $proprietaire)
     {
+        $nom_complet = $proprietaire->nom . " ". $proprietaire->prenom; 
         $proprietaire->delete();
-        return back()>with("successDelete", "Propriétaire supprimé avec succès !");
+        return back()->with("successDelete", "Le propriétaire '$nom_complet' a été supprimé avec succès !");
     }
     
 }

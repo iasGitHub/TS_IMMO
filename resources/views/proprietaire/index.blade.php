@@ -50,7 +50,7 @@
                   <td>{{ $proprietaire->dateNaissance}}</td>
                   <td>{{ $proprietaire->lieuNaissance}}</td>
                   <td>
-                    <a href="#" class="btn btn-info">Modifier</a>
+                    <a href="{{ route('proprietaire.edit', ['proprietaire'=>$proprietaire])}}" class="btn btn-info">Modifier</a>
                     <a href="#" class="btn btn-danger" onclick="if(confirm('Voulez-vous vraiment supprimer ce propriétaire ?')){document.getElementById('form-{{$proprietaire->id}}').submit() }">Supprimer</a>
                     <form id="form-{{$proprietaire->id}}" action="{{ route('proprietaire.delete',
                       ['proprietaire'=>$proprietaire->id])}}" method="POST">

@@ -27,6 +27,8 @@ Route::post('/proprietaire/store', [ProprietaireController::class, 'store'])->na
 Route::get('/proprietaire/create', [ProprietaireController::class,'create'])->name('proprietaire.create');
 Route::get('/proprietaire', [ProprietaireController::class,'index'])->name('proprietaire.index');
 Route::delete('/proprietaire/{proprietaire}', [ProprietaireController::class,'delete'])->name('proprietaire.delete');
+Route::put('/proprietaire/{proprietaire}', [ProprietaireController::class,'update'])->name('proprietaire.update');
+Route::get('/proprietaire/{proprietaire}', [ProprietaireController::class,'edit'])->name('proprietaire.edit');
 
 //Quartier
 
