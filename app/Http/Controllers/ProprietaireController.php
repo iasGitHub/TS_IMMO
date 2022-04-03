@@ -38,20 +38,22 @@ class ProprietaireController extends Controller
      */
     public function store(Request $request)
     {
-        $proprietaire = new Proprietaire;
-        $proprietaire->nom = $request->nom;
-        $proprietaire->prenom = $request->prenom;
-        $proprietaire->adresse = $request->adresse;
-        $proprietaire->email = $request->email;
-        $proprietaire->telephone = $request->telephone;
-        $proprietaire->civilite = $request->civilite;
-        $proprietaire->cni = $request->cni;
-        $proprietaire->sexe = $request->sexe;
-        $proprietaire->dateNaissance = $request->dateNaissance;
-        $proprietaire->lieuNaissance = $request->lieuNaissance;
-        $proprietaire->save();
+        $request->validate([
+          "nom" => "required",
+          "prenom" => "required",
+          "adresse" => "required",
+          "email" => "required",
+          "telephone" => "required",
+          "civilite" => "required",
+          "cni" => "required",
+          "sexe" => "required",
+          "dateNaissance" => "required",
+          "lieuNaissance" => "required",
+        ]);
 
-        return view('home');
+        Proprietaire::create($request->all());
+        return back()->with("success", "Propriétaire crée avec succès !");
+        
     }
 
     /**
@@ -101,4 +103,20 @@ class ProprietaireController extends Controller
         $proprietaire->delete();
         return redirect('/proprietaire')->with('success', 'Proprietaire Data is successfully deleted');
     }
+    
 }
+
+        // $proprietaire = new Proprietaire;
+        // $proprietaire->nom = $request->nom;
+        // $proprietaire->prenom = $request->prenom;
+        // $proprietaire->adresse = $request->adresse;
+        // $proprietaire->email = $request->email;
+        // $proprietaire->telephone = $request->telephone;
+        // $proprietaire->civilite = $request->civilite;
+        // $proprietaire->cni = $request->cni;
+        // $proprietaire->sexe = $request->sexe;
+        // $proprietaire->dateNaissance = $request->dateNaissance;
+        // $proprietaire->lieuNaissance = $request->lieuNaissance;
+        // $proprietaire->save();
+
+        // return view('home');

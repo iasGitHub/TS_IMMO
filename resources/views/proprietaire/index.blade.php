@@ -10,7 +10,8 @@
 <body>
   <main class="container">
       <div class="my-3 p-3 bg-body shadow-sm">
-        <h6 class="border-bottom pb-2 mb-4"> Liste des propriétaires </h6>
+      <h6 class="border-bottom pb-2 mb-4"> Liste des propriétaires </h6>
+      {{ $proprietaires->links()}}
         <div>
             <table class="table table-bordered table-hover">
               <thead>
@@ -50,7 +51,7 @@
                 </tr>
                 @endforeach
               </tbody>
-              {{ $proprietaires->links()}}
+              
             </table>
         </div>
       </div>
