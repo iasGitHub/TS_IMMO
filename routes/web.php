@@ -26,6 +26,7 @@ Route::get('/add-proprietaire', [ProprietaireController::class, 'create']);
 Route::post('/proprietaire/store', [ProprietaireController::class, 'store'])->name('proprietaire.store');
 Route::get('/proprietaire/create', [ProprietaireController::class,'create'])->name('proprietaire.create');
 Route::get('/proprietaire', [ProprietaireController::class,'index'])->name('proprietaire.index');
+Route::delete('/proprietaire/{proprietaire}', [ProprietaireController::class,'delete'])->name('proprietaire.delete');
 
 //Quartier
 

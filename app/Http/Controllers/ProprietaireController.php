@@ -97,11 +97,17 @@ class ProprietaireController extends Controller
      * @param  \App\Models\Proprietaire  $proprietaire
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    // public function destroy($id)
+    // {
+    //     $proprietaire = Proprietaire::findOrFail($id);
+    //     $proprietaire->delete();
+    //     return redirect('/proprietaire')->with('success', 'Proprietaire Data is successfully deleted');
+    // }
+
+    public function delete (Proprietaire $proprietaire)
     {
-        $proprietaire = Proprietaire::findOrFail($id);
         $proprietaire->delete();
-        return redirect('/proprietaire')->with('success', 'Proprietaire Data is successfully deleted');
+        return back()>with("successDelete", "Propriétaire supprimé avec succès !");
     }
     
 }

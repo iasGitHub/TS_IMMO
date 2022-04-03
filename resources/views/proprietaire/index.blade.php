@@ -8,11 +8,16 @@
   <title>Propriétaire</title>
 </head>
 <body>
-  <main class="container">
+  <main class="container-fluid m-5">
       <div class="my-3 p-3 bg-body shadow-sm">
       <h6 class="border-bottom pb-2 mb-4"> Liste des propriétaires </h6>
       {{ $proprietaires->links()}}
         <div>
+            @if(session()->has("successDelete"))
+                <div class="alert alert-success">
+                    <h3> {{ session()->get('successDelete') }} </h3>
+                </div>
+            @endif
             <table class="table table-bordered table-hover">
               <thead>
                 <tr>
@@ -46,7 +51,12 @@
                   <td>{{ $proprietaire->lieuNaissance}}</td>
                   <td>
                     <a href="#" class="btn btn-info">Modifier</a>
-                    <a href="#" class="btn btn-danger">Supprimer</a>
+                    <a href="#" class="btn btn-danger" onclick="if(confirm('Voulez-vous vraiment supprimer ce propriétaire ?')){document.getElementById('form-{{$proprietaire->id}}').submit() }">Supprimer</a>
+                    <form id="form-{{$proprietaire->id}}" action="{{ route('proprietaire.delete',
+                      ['proprietaire'=>$proprietaire->id])}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="_method" value="delete">
+                    </form>
                   </td>                  
                 </tr>
                 @endforeach
