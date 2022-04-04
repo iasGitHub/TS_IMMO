@@ -51,8 +51,6 @@
               </a>
             <ul class="sub">
               <li><a href="add-proprietaire">Ajout des propriétaires</a></li>
-              <li><a href="update">Mis à jour propriétaires</a></li>
-              <li><a href="delete">Suspendre propriétaires</a></li>
               <li><a href="/proprietaire">Liste des propriétaires </a></li>
             </ul>
           </li>
@@ -63,7 +61,7 @@
               </a>
             <ul class="sub">
               <li><a href="add-quartier">Ajout des quartiers</a></li>
-              <li><a href="update">Mis à jour quartier</a></li>
+              <li><a href="/quartier">Liste des quartiers </a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -73,7 +71,7 @@
               </a>
             <ul class="sub">
               <li><a href="add-propriete">Ajout des propriétés</a></li>
-              <li><a href="update">Mis à jour propriété</a></li>
+              <li><a href="/propriete">Liste des propriétés </a></li>
             </ul>
           </li>
         </ul>

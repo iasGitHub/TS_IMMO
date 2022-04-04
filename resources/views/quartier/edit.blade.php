@@ -1,53 +1,48 @@
-@extends('layout')
+@extends('layouts.app')
+@section('section')
 
-@section('content')
-<style>
-  .uper {
-    margin-top: 40px;
-  }
-</style>
-<div class="card uper">
-  <div class="card-header">
-    Edit Proprietaire Data
-  </div>
-  <div class="card-body">
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-      </div><br />
-    @endif
-      <form method="post" action="{{ route('proprietaire.update', $proprietaire->id ) }}">
-          <div class="form-group">
-              @csrf
-              @method('PATCH')
-              <label for="nom">Proprietaire Name:</label>
-              <input type="text" class="form-control" name="nom" value="{{ $proprietaire->nom }}"/>
+    <section id="main-content">
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> Informations du quartier</h3>
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <h4 class="title">Modification informations du quartier</h4>
+
+            @if(session()->has("success"))
+                <div class="alert alert-success">
+                    <h3> {{ session()->get('success') }} </h3>
+                </div>
+            @endif
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                          <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+              <form class="contact-form php-mail-form" role="form" action="{{ route('quartier.update', ['quartier'=>$quartier->id]) }}" method="POST">
+              
+                @csrf
+
+                <input type="hidden" name="_method" value="put">
+
+                <div class="form-group">
+                    <input type="text" name="libelle" class="form-control" id="libelle" value="{{$quartier->libelle}}" placeholder="Entrer le nom du quartier" data-rule="minlen:2" data-msg="Please enter at least 2 chars" >
+                </div>
+                <div class="form-send">
+                    <button type="submit" class="btn btn-large btn-primary">Enregistrer</button>
+                    <a href="{{route('quartier.create')}}" class="btn btn-large btn-danger">Annuler</a>
+                </div>
+              </form>
           </div>
-          <div class="form-group">
-              <label for="cases">Game Price :</label>
-              <input type="text" class="form-control" name="price" value="{{ $proprietaire->prenom }}"/>
-          </div>
-          <button type="submit" class="btn btn-primary">Update Data</button>
-      </form>
-  </div>
-</div>
+
+        </div>
+      </section>
+      <!-- /wrapper -->
+    </section>
+   
 @endsection
-
-<!-- <tr>
-                <th>No</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Adresse</th>
-                <th>Email</th>
-                <th>Téléphone</th>
-                <th>Civilité</th>
-                <th>CNI</th>
-                <th>Sexe</th>
-                <th>Date de naissance</th>
-                <th>Lieu de naissance</th>
-                <th>Actions</th>
-            </tr> -->

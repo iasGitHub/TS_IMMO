@@ -64,12 +64,9 @@
                 </div>
               </form>
           </div>
-
+          
         </div>
-        <!-- /row -->
 
-
-        <!-- /row -->
       </section>
       <!-- /wrapper -->
     </section>

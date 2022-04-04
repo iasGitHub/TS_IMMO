@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Quartier;
 use App\Models\Propriete;
 use App\Models\Proprietaire;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProprieteRequest;
 use App\Http\Requests\UpdateProprieteRequest;
 
@@ -17,7 +18,8 @@ class ProprieteController extends Controller
      */
     public function index()
     {
-        //
+        $proprietes = Propriete::orderBy("libelle", "asc")->paginate(2);
+        return view("propriete.index", compact("proprietes"));
     }
 
     /**
@@ -43,17 +45,18 @@ class ProprieteController extends Controller
      */
     public function store(Request $request)
     {
-        $propriete = new Propriete;
-        $propriete->libelle = $request->libelle;
-        $propriete->superficie = $request->superficie;
-        $propriete->photo = $request->photo;
-        $propriete->description = $request->description;
-        $propriete->disponibilite = $request->disponibilite;
-        $propriete->proprietaire_id = $request->proprietaire_id;
-        $propriete->proprietaire_id = $request->proprietaire_id;
-        $propriete->save();
-
-        return view('home');
+        $request->validate([
+            "libelle" => "required",
+            "superficie" => "required",
+            "description" => "required",
+            "photo" => "required",
+            "disponibilite" => "required",
+            "quartier_id" => "required",
+            "proprietaire_id" => "required",
+          ]);
+  
+          Propriete::create($request->all());
+          return back()->with("success", "Propriété enregistrée avec succès !");
     }
 
     /**
@@ -75,7 +78,9 @@ class ProprieteController extends Controller
      */
     public function edit(Propriete $propriete)
     {
-        //
+        $quartiers = Quartier::all();
+        $proprietaires = Proprietaire::all();
+        return view('propriete.edit', compact('propriete',"quartiers", "proprietaires"));
     }
 
     /**
@@ -85,9 +90,28 @@ class ProprieteController extends Controller
      * @param  \App\Models\Propriete  $propriete
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProprieteRequest $request, Propriete $propriete)
+    public function update(Request $request, Propriete $propriete)
     {
-        //
+        $request->validate([
+            "libelle" => "required",
+            "superficie" => "required",
+            "description" => "required",
+            "photo" => "required",
+            "disponibilite" => "required",
+            "quartier_id" => "required",
+            "proprietaire_id" => "required",
+          ]);
+  
+          $propriete->update([
+                "libelle" => $request->libelle,
+                "superficie" => $request->superficie,
+                "description" => $request->description,
+                "photo" => $request->photo,
+                "disponibilite" => $request->disponibilite,
+                "quartier_id" => $request->quartier_id,
+                "proprietaire_id" => $request->proprietaire_id,
+          ]);
+          return back()->with("success", "Infos de la propriété mis à jour avec succès !");
     }
 
     /**
@@ -96,8 +120,14 @@ class ProprieteController extends Controller
      * @param  \App\Models\Propriete  $propriete
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Propriete $propriete)
+    // public function destroy(Propriete $propriete)
+    // {
+    //     //
+    // }
+
+    public function delete (Propriete $propriete)
     {
-        //
+        $propriete->delete();
+        return back()->with("successDelete", "La propriété a été supprimé avec succès !");
     }
 }

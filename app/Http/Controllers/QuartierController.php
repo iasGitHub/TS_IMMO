@@ -16,9 +16,9 @@ class QuartierController extends Controller
      */
     public function index()
     {
-        //
+        $quartiers = Quartier::orderBy("libelle", "asc")->paginate(2);
+        return view("quartier.index", compact("quartiers"));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -37,11 +37,12 @@ class QuartierController extends Controller
      */
     public function store(Request $request)
     {
-        $quartier = new Quartier;
-        $quartier->libelle = $request->libelle;
-        $quartier->save();
-
-        return view('home');
+        $request->validate([
+            "libelle" => "required",
+          ]);
+  
+          Quartier::create($request->all());
+          return view('home')->with("success", "Quartier crée avec succès !");
     }
 
     /**
@@ -60,10 +61,11 @@ class QuartierController extends Controller
      *
      * @param  \App\Models\Quartier  $quartier
      * @return \Illuminate\Http\Response
-     */
+     */  
+    
     public function edit(Quartier $quartier)
     {
-        //
+        return view('quartier.edit', compact('quartier'));
     }
 
     /**
@@ -73,9 +75,16 @@ class QuartierController extends Controller
      * @param  \App\Models\Quartier  $quartier
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateQuartierRequest $request, Quartier $quartier)
+    public function update(Request $request, Quartier $quartier)
     {
-        //
+        $request->validate([
+            "libelle" => "required",
+        ]);
+  
+        $quartier->update([
+            "libelle" => $request->libelle,
+        ]);
+        return back()->with("success", "Nom quartier mis à jour avec succès !");
     }
 
     /**
@@ -84,8 +93,13 @@ class QuartierController extends Controller
      * @param  \App\Models\Quartier  $quartier
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Quartier $quartier)
+    // public function destroy(Quartier $quartier)
+    // {
+    //     //
+    // }
+    public function delete (Quartier $quartier)
     {
-        //
+        $quartier->delete();
+        return back()->with("successDelete", "Le quartier '$libelle' a été supprimé avec succès !");
     }
 }

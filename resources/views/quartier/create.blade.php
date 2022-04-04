@@ -7,28 +7,40 @@
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
-            <h4 class="title">Ajout un nouvel quartier</h4>
-            <div id="message"></div>
+            <h4 class="title">Ajout d'un quartier</h4>
 
-            <form class="contact-form php-mail-form" role="form" action="{{ route('quartier.store') }}" method="POST">
-            @csrf
-              <div class="form-group">
-                <input type="text" name="libelle" class="form-control" id="libelle" placeholder="Entrer le nom du quartier" data-rule="minlen:2" data-msg="Please enter at least 2 chars" >
-                <div class="validate"></div>
-              </div>
+            @if(session()->has("success"))
+                <div class="alert alert-success">
+                    <h3> {{ session()->get('success') }} </h3>
+                </div>
+            @endif
 
-              <div class="form-send">
-                <button type="submit" class="btn btn-large btn-primary">Enregistrer</button>
-              </div>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                          <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
 
-            </form>
+              <form class="contact-form php-mail-form" role="form" action="{{ route('quartier.store') }}" method="POST">
+              
+                @csrf
+
+                <div class="form-group">
+                    <input type="text" name="libelle" class="form-control" id="libelle" placeholder="Entrer le nom du quartier" data-rule="minlen:2" data-msg="Please enter at least 2 chars" >
+                </div>
+                <div class="form-send">
+                    <button type="submit" class="btn btn-large btn-primary">Enregistrer</button>
+                    <a href="{{route('quartier.create')}}" class="btn btn-large btn-danger">Annuler</a>
+                </div>
+              </form>
+
           </div>
-
         </div>
-        <!-- /row -->
 
-
-        <!-- /row -->
       </section>
       <!-- /wrapper -->
     </section>

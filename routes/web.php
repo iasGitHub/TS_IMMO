@@ -32,15 +32,26 @@ Route::get('/proprietaire/{proprietaire}', [ProprietaireController::class,'edit'
 
 //Quartier
 
-Route::get('/add-quartier', [QuartierController::class, 'create'])->name('quartier.create');
+Route::get('/add-quartier', [QuartierController::class, 'create']);
 Route::post('/quartier/store', [QuartierController::class, 'store'])->name('quartier.store');
+Route::get('/quartier/create', [QuartierController::class,'create'])->name('quartier.create');
+Route::get('/quartier', [QuartierController::class,'index'])->name('quartier.index');
+Route::delete('/quartier/{quartier}', [QuartierController::class,'delete'])->name('quartier.delete');
+Route::put('/quartier/{quartier}', [QuartierController::class,'update'])->name('quartier.update');
+Route::get('/quartier/{quartier}', [QuartierController::class,'edit'])->name('quartier.edit');
 
 // Propriété
 
+
 Route::get('/add-propriete', [ProprieteController::class, 'create']);
 Route::post('/propriete/store', [ProprieteController::class, 'store'])->name('propriete.store');
+Route::get('/propriete/create', [ProprieteController::class,'create'])->name('propriete.create');
+Route::get('/propriete', [ProprieteController::class,'index'])->name('propriete.index');
+Route::delete('/propriete/{propriete}', [ProprieteController::class,'delete'])->name('propriete.delete');
+Route::put('/propriete/{propriete}', [ProprieteController::class,'update'])->name('propriete.update');
+Route::get('/propriete/{propriete}', [ProprieteController::class,'edit'])->name('propriete.edit');
 
-// Quartier
+
 
 
 

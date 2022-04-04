@@ -136,18 +136,3 @@ class ProprietaireController extends Controller
     }
     
 }
-
-        // $proprietaire = new Proprietaire;
-        // $proprietaire->nom = $request->nom;
-        // $proprietaire->prenom = $request->prenom;
-        // $proprietaire->adresse = $request->adresse;
-        // $proprietaire->email = $request->email;
-        // $proprietaire->telephone = $request->telephone;
-        // $proprietaire->civilite = $request->civilite;
-        // $proprietaire->cni = $request->cni;
-        // $proprietaire->sexe = $request->sexe;
-        // $proprietaire->dateNaissance = $request->dateNaissance;
-        // $proprietaire->lieuNaissance = $request->lieuNaissance;
-        // $proprietaire->save();
-
-        // return view('home');
