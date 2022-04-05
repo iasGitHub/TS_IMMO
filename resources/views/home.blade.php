@@ -9,7 +9,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/Tasnim.jpeg')}}" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="profile.html"><img src="{{secure_asset('assets/img/Tasnim.jpeg')}}" class="img-circle" width="80"></a></p>
           <!-- <h5 class="centered">Sam Soffes</h5> -->
           <li class="mt">
             <a class="active" href="/">
@@ -89,20 +89,20 @@
     @endsection
 
     @section('script')
-        <script src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
+        <script src="{{secure_asset('assets/lib/jquery/jquery.min.js')}}"></script>
 
-        <script src="{{asset('assets/lib/bootstrap/js/bootstrap.min.js')}}"></script>
-        <script class="include" type="text/javascript" src="{{asset('assets/lib/jquery.dcjqaccordion.2.7.js')}}"></script>
-        <script src="{{asset('assets/lib/jquery.scrollTo.min.js')}}"></script>
-        <script src="{{asset('assets/lib/jquery.nicescroll.js')}}" type="text/javascript"></script>
-        <script src="{{asset('assets/lib/jquery.sparkline.js')}}"></script>
+        <script src="{{secure_asset('assets/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+        <script class="include" type="text/javascript" src="{{secure_asset('assets/lib/jquery.dcjqaccordion.2.7.js')}}"></script>
+        <script src="{{secure_asset('assets/lib/jquery.scrollTo.min.js')}}"></script>
+        <script src="{{secure_asset('assets/lib/jquery.nicescroll.js')}}" type="text/javascript"></script>
+        <script src="{{secure_asset('assets/lib/jquery.sparkline.js')}}"></script>
         <!--common script for all pages-->
-        <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
-        <script type="text/javascript" src="{{asset('assets/lib/gritter/js/jquery.gritter.js')}}"></script>
-        <script type="text/javascript" src="{{asset('assets/lib/gritter-conf.js')}}"></script>
+        <script src="{{secure_asset('assets/lib/common-scripts.js')}}"></script>
+        <script type="text/javascript" src="{{secure_asset('assets/lib/gritter/js/jquery.gritter.js')}}"></script>
+        <script type="text/javascript" src="{{secure_asset('assets/lib/gritter-conf.js')}}"></script>
         <!--script for this page-->
-        <script src="{{asset('assets/lib/sparkline-chart.js')}}"></script>
-        <script src="{{asset('assets/lib/zabuto_calendar.js')}}"></script>
+        <script src="{{secure_asset('assets/lib/sparkline-chart.js')}}"></script>
+        <script src="{{secure_asset('assets/lib/zabuto_calendar.js')}}"></script>
         <script type="text/javascript">
         $(document).ready(function() {
             var unique_id = $.gritter.add({
