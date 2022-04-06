@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Quartier;
 use App\Models\Propriete;
 use App\Models\Proprietaire;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProprieteRequest;
 use App\Http\Requests\UpdateProprieteRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProprieteController extends Controller
 {
@@ -45,18 +47,23 @@ class ProprieteController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            "libelle" => "required",
-            "superficie" => "required",
-            "description" => "required",
-            "photo" => "required",
-            "disponibilite" => "required",
-            "quartier_id" => "required",
-            "proprietaire_id" => "required",
-          ]);
-  
-          Propriete::create($request->all());
-          return back()->with("success", "Propriété enregistrée avec succès !");
+        $propriete = new Propriete;
+        $propriete->libelle = $request->input('libelle');
+        $propriete->superficie = $request->input('superficie');
+        $propriete->description = $request->input('description');
+        $propriete->disponibilite = $request->input('disponibilite');
+        $propriete->quartier_id = $request->input('quartier_id');
+        $propriete->proprietaire_id = $request->input('proprietaire_id');
+        if($request->hasfile('photo'))
+        {
+            $file = $request->file('photo');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.'.$extension;
+            $file->move('storage/images/', $filename);
+            $propriete->photo = $filename;
+        }
+        $propriete->save();
+        return back()->with("success", "Propriété enregistrée avec succès !");
     }
 
     /**
