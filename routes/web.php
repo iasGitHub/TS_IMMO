@@ -42,7 +42,6 @@ Route::get('/quartier/{quartier}', [QuartierController::class,'edit'])->name('qu
 
 // Propriété
 
-
 Route::get('/add-propriete', [ProprieteController::class, 'create']);
 Route::post('/propriete/store', [ProprieteController::class, 'store'])->name('propriete.store');
 Route::get('/propriete/create', [ProprieteController::class,'create'])->name('propriete.create');
