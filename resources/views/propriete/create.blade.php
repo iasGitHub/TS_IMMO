@@ -37,7 +37,7 @@
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <input type="file" name="photo" class="form-control" id="photo" placeholder="Choisir la photo" data-rule="minlen:4" >
+                <input type="text" name="photo" class="form-control" id="photo" placeholder="Entrer le lien de la photo" data-rule="minlen:4" data-msg="Please enter at least 10 chars" >
                 <div class="validate"></div>
               </div>
               <div class="form-group">
