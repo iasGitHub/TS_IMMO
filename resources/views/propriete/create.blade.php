@@ -24,7 +24,7 @@
                 </ul>
             </div>
             @endif
-            <form class="contact-form php-mail-form" enctype="multipart/form-data" role="form" action="{{ route('propriete.store' )}}" method="POST">
+            <form class="contact-form php-mail-form" role="form" action="{{ route('propriete.store' )}}" method="POST">
             
               @csrf
 
