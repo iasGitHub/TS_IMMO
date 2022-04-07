@@ -1,5 +1,5 @@
 @extends('./home')
-@section('section')
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,4 +67,3 @@
 </body>
 </html>
 
-@endsection
