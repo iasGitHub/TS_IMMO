@@ -27,13 +27,22 @@
               <form class="contact-form php-mail-form" role="form" action="{{ route('proprietaire.store') }}" method="POST">
               
                 @csrf
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrer votre nom" data-rule="minlen:2" data-msg="Please enter at least 2 chars" >
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Entrer votre prenom" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
+                        </div>
+                    </div>
+                </div>
 
-                <div class="form-group">
-                    <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrer votre nom" data-rule="minlen:2" data-msg="Please enter at least 2 chars" >
-                </div>
-                <div class="form-group">
-                    <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Entrer votre prenom" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
-                </div>
+                
+                
                 <div class="form-group">
                     <input type="text" name="adresse" class="form-control" id="adresse" placeholder="Entrer votre adresse" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
                 </div>
