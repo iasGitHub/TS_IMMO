@@ -1,5 +1,6 @@
-@include('./home')
 @extends('layouts.header')
+@section('section')
+
 
     <section id="main-content">
       <section class="wrapper">
