@@ -16,8 +16,6 @@ use App\Http\Controllers\ProprietaireController;
 |
 */
 
-
-
 Route::get('/', function () {
     return view('home');
 });
