@@ -44,6 +44,13 @@
             </div>
             <!--logo start-->
             <a href="/" class="logo"><b>TS_<span>IMMO</span></b></a>
+            
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                <li><a class="logout" href="{{secure_asset('assets/login.html')}}">Logout</a></li>
+                </ul>
+            </div>
+        </header>
     
 
     <!-- **********************************************************************************************************************************************************
@@ -62,33 +69,6 @@
                         <span>Dashboard</span>
                         </a>
                     </li>
-                    <!-- <li class="sub-menu">
-                        <a href="javascript:;">
-                        <i class="fa fa-desktop"></i>
-                        <span>UI Elements</span>
-                        </a>
-                        <ul class="sub">
-                        <li><a href="general.html">General</a></li>
-                        <li><a href="buttons.html">Buttons</a></li>
-                        <li><a href="panels.html">Panels</a></li>
-                        <li><a href="font_awesome.html">Font Awesome</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- <li class="sub-menu">
-                        <a href="javascript:;">
-                        <i class="fa fa-cogs"></i>
-                        <span>Components</span>
-                        </a>
-                        <ul class="sub">
-                        <li><a href="grids.html">Grids</a></li>
-                        <li><a href="calendar.html">Calendar</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="todo_list.html">Todo List</a></li>
-                        <li><a href="dropzone.html">Dropzone File Upload</a></li>
-                        <li><a href="inline_editor.html">Inline Editor</a></li>
-                        <li><a href="file_upload.html">Multiple File Upload</a></li>
-                        </ul>
-                    </li> -->
                     <li class="sub-menu">
                         <a href="javascript:;">
                         <i class="fa fa-book"></i>
@@ -202,16 +182,9 @@
                 // }
                 </script>
             @endsection
-
-            <div class="top-menu">
-                <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="{{secure_asset('assets/login.html')}}">Logout</a></li>
-                </ul>
-            </div>
-        </header>
     <!--header end-->
     @yield('section')
-    
+
     </section>
  
   <!-- SCRIPT POUR JS -->
