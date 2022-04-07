@@ -2,9 +2,9 @@
 @section('section')
 
 
-  <main class="container-fluid m-5">
-      <div class="my-3 p-3 bg-body shadow-sm">
-      <h6 class="border-bottom pb-2 mb-4"> Liste des propriétés </h6>
+  <section id="main-content">
+      <section class="wrapper">
+        <h6><i class="fa fa-angle-right"></i> Liste des propriétaire</h6>
       {{ $proprietes->links()}}
         <div>
             @if(session()->has("successDelete"))
