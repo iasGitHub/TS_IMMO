@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('../../home.php')
 @section('section')
 
     <section id="main-content">
