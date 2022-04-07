@@ -6,7 +6,7 @@
               <div class="project">
                 <div class="photo-wrapper">
                   <div class="photo">
-                    <a class="fancybox" href="{{secure_asset('assets/img/portfolio/port04.jpg"><img class="img-responsive" src="{{secure_asset('assets/img/portfolio/port04.jpg" alt=""></a>
+                    <a class="fancybox" href="{{secure_asset('assets/img/portfolio/port04.jpg')}}"><img class="img-responsive" src="{{secure_asset('assets/img/portfolio/port04.jpg')}}" alt=""></a>
                   </div>
                   <div class="overlay"></div>
                 </div>
