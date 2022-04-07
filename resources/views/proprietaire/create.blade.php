@@ -8,7 +8,6 @@
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
             <h4 class="title">Ajout proprietaire</h4>
-            <a href="{{ route('/') }}">Retour</a>
             @if(session()->has("success"))
                 <div class="alert alert-success">
                     <h3> {{ session()->get('success') }} </h3>
