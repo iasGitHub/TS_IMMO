@@ -1,3 +1,6 @@
+@extends('./home')
+@section('section')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,3 +66,5 @@
   </main>
 </body>
 </html>
+
+@endsection
