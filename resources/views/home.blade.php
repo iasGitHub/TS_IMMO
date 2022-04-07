@@ -2,4 +2,5 @@
 @section('section')
 
 @endsection
+@extends('layouts.footer')
 
