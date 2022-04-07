@@ -1,6 +1,7 @@
 @include('./home')
 
 @extends('layouts.app')
+@section('section')
 
     <section id="main-content">
       <section class="wrapper">
@@ -112,3 +113,4 @@
       <!-- /wrapper -->
     </section>
 
+@endsection
