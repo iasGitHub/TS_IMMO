@@ -1,5 +1,6 @@
-@extends('layouts.app')
+@include('./home')
 
+@extends('layouts.app')
 
     <section id="main-content">
       <section class="wrapper">
