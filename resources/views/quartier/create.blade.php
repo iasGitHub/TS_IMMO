@@ -45,3 +45,5 @@
       </section>
       <!-- /wrapper -->
     </section>
+   
+@endsection
