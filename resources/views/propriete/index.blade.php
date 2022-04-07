@@ -1,16 +1,7 @@
 @extends('./home')
+@section('section')
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <title>Propriétés</title>
-</head>
-<body>
   <main class="container-fluid m-5">
       <div class="my-3 p-3 bg-body shadow-sm">
       <h6 class="border-bottom pb-2 mb-4"> Liste des propriétés </h6>
@@ -64,6 +55,6 @@
       </div>
       </div>
   </main>
-</body>
-</html>
 
+
+@endsection
