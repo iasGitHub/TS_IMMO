@@ -1,5 +1,5 @@
-@extends('../../home.php')
-@section('section')
+@extends('layouts.app')
+@include('./home')
 
     <section id="main-content">
       <section class="wrapper">
@@ -111,4 +111,3 @@
       <!-- /wrapper -->
     </section>
    
-@endsection
