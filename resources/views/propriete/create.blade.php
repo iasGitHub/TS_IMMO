@@ -1,4 +1,4 @@
-@extends('layouts.header')
+@extends('./home')
 @section('section')
 
     <section id="main-content">
