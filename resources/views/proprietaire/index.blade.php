@@ -3,7 +3,7 @@
 
   <section id="main-content">
     <section class="wrapper">
-        <h6 class="border-bottom pb-2 mb-4"> Liste des propriétaires </h6>
+        <h3 class="border-bottom pb-2 mb-4"> Liste des propriétaires </h3>
           {{ $proprietaires->links()}}
         <div>
             @if(session()->has("successDelete"))

@@ -23,7 +23,7 @@
                 </ul>
             </div>
             @endif
-              <form class="contact-form php-mail-form" role="form" action="{{ route('proprietaire.store') }}" method="POST">
+              <form class="contact-form php-mail-form ms-4" role="form" action="{{ route('proprietaire.store') }}" method="POST">
               
                 @csrf
                 

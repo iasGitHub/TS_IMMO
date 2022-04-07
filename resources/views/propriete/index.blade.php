@@ -4,7 +4,7 @@
 
   <section id="main-content">
       <section class="wrapper">
-          <h6><i class="fa fa-angle-right"></i> Liste des propriétés </h6>
+          <h3><i class="fa fa-angle-right"></i> Liste des propriétés </h3>
               {{ $proprietes->links()}}
           <div>
               @if(session()->has("successDelete"))
