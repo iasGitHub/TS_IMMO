@@ -10,7 +10,7 @@
                         <div class="project">
                             <div class="photo-wrapper">
                                 <div class="photo">
-                                    <a class="fancybox" href="#"><img class="img-responsive" src=/storage{{$propriete->photo }} alt=""></a>
+                                    <a class="fancybox" href="#"><img class="img-responsive" src="/storage/{{$propriete->photo }}" alt=""></a>
                                 </div>
                                 <div class="overlay">
                                     
